@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +8,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,700;0,900;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #000;
+            background-color: #050505;
             overflow-x: hidden;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
         }
 
         .text-italic-speed {
@@ -31,158 +32,320 @@
         }
 
         .dynamic-shape {
-            animation: float 6s ease-in-out infinite;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .dynamic-shape-slow {
+            animation: float 12s ease-in-out infinite reverse;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
         }
 
-        /* .btn-glow:hover {
-            box-shadow: 0 0 15px rgba(66, 165, 225, 0.5);
-        } */
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #7DD3FC, #42A5E1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
     </style>
 </head>
-<body class="text-white min-h-screen flex flex-col items-center justify-center p-4">
+<body class="text-white min-h-screen flex flex-col items-center">
 
-    <!-- Background SVG Container -->
-    <div class="fixed inset-0 z-negative pointer-events-none">
+    <!-- Background SVG Container Animado -->
+    <div class="fixed inset-0 -z-10 pointer-events-none">
         <svg width="100%" height="100%" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <!-- Grupo de Linhas Superiores (Cinza/Preto) -->
-            <g class="dynamic-shape opacity-40">
-                <path d="M-100 150 L600 -50 L500 -50 L-100 250 Z" fill="#333" />
-                <path d="M-100 300 L700 -50 L650 -50 L-100 350 Z" fill="#1a1a1a" />
+            <!-- Grupo de Linhas Superiores -->
+            <g class="dynamic-shape opacity-30">
+                <path d="M-100 150 L600 -50 L500 -50 L-100 250 Z" fill="#222" />
+                <path d="M-100 300 L700 -50 L650 -50 L-100 350 Z" fill="#111" />
             </g>
-
-            <!-- Grupo de Linhas Inferiores (Azul e Branco) -->
-            <g class="dynamic-shape">
-                <path d="M1500 850 L800 400 L700 450 L1500 950 Z" fill="#1a1a1a" />
-                <path d="M1500 700 L600 350 L450 450 L1500 850 Z" fill="#42A5E1" />
-                <path d="M1500 600 L700 350 L680 370 L1500 650 Z" fill="#7DD3FC" opacity="0.8" />
-                <path d="M1500 550 L850 350 L840 355 L1500 570 Z" fill="#FFFFFF" opacity="0.5" />
-                <path d="M1500 750 L550 450 L500 550 L1500 950 Z" fill="#1E40AF" />
+            <!-- Grupo de Linhas Inferiores -->
+            <g class="dynamic-shape-slow">
+                <path d="M1500 850 L800 400 L700 450 L1500 950 Z" fill="#111" />
+                <path d="M1500 700 L600 350 L450 450 L1500 850 Z" fill="#42A5E1" opacity="0.4" />
+                <path d="M1500 600 L700 350 L680 370 L1500 650 Z" fill="#7DD3FC" opacity="0.3" />
+                <path d="M1500 550 L850 350 L840 355 L1500 570 Z" fill="#FFFFFF" opacity="0.1" />
+                <path d="M1500 750 L550 450 L500 550 L1500 950 Z" fill="#1E40AF" opacity="0.5" />
             </g>
         </svg>
     </div>
 
-    <!-- Conteúdo Principal -->
-    <main class="relative z-10 flex flex-col items-center max-w-2xl w-full text-center">
+    <!-- Seção Principal (Hero) -->
+    <main class="relative z-10 flex flex-col items-center max-w-3xl w-full text-center px-4 pt-12 pb-8">
         
-       <div class="mb-8 transform hover:scale-105 transition duration-500">
+        <div class="mb-6 transform hover:scale-105 transition duration-500">
             <img src="images/Logo_Lobo.png" 
                  alt="Logo Corre Lobo" 
-                 class="w-64 h-64 md:w-80 md:h-80 object-contain drop-shadow-[0_0_50px_rgba(66,165,225,0.5)] "
-                 style="mix-blend-mode: multiply;">
+                 class="w-56 h-56 md:w-72 md:h-72 object-contain drop-shadow-[0_0_40px_rgba(66,165,225,0.4)]"
+                 style="mix-blend-mode: screen;"> <!-- Alterado para screen para fundos escuros -->
         </div>
 
-        <h1 class="text-5xl md:text-7xl font-black text-italic-speed mb-2 italic">
-            CORRE <span class="text-white">LOBO</span>
+        <h1 class="text-6xl md:text-8xl font-black text-italic-speed mb-4">
+            CORRE <span class="text-[#42A5E1]">LOBO</span>
         </h1>
         
         <!-- Card de Informações -->
-        <div class="glass-card rounded-2xl p-8 w-full mb-8 transform transition-all hover:scale-[1.01]">
-            <h2 class="text-xl md:text-2xl font-bold mb-4 tracking-wide">Venha correr com a gente</h2>
-                <div class="max-w-md mx-auto space-y-4 text-lg font-medium opacity-90 text-left">
+        <div class="glass-card rounded-3xl p-8 w-full mb-10 transform transition-all hover:scale-[1.02]">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 tracking-wide">Venha correr com a gente</h2>
+            
+            <div class="max-w-sm mx-auto space-y-4 text-lg font-medium text-white/90 text-left">
+                <div class="flex items-center gap-3"><span class="text-xl">📅</span> TODA MANHÃ DE DOMINGO</div>
+                <div class="flex items-center gap-3"><span class="text-xl">🕒</span> 06H00 CONCENTRAÇÃO</div>
+                <div class="flex items-center gap-3"><span class="text-xl">⏰</span> 06H25 AQUECIMENTO</div>
+                <div class="flex items-center gap-3"><span class="text-xl">🏁</span> 06H30 LARGADA</div>
+                <div class="flex items-center gap-3"><span class="text-xl">📍</span> PARQUE ECOLÓGICO DE SARZEDO</div>
+            </div>
 
-                    <p>📅 TODA MANHÃ DE DOMINGO</p>
-                    <p>🕒 06H00 CONCENTRAÇÃO</p>
-                    <p>⏰ 06H25 aquecimento</p> 
-                    <p>🏁 06H30 largada</p>
-                    <p>📍 NO PARQUE Ecológico de Sarzedo</p>
-                    
-                </div>
-
-            <div class="mt-6 mb-6 inline-block bg-[#42A5E1] text-black font-black gap-2 px-6 py-2 rounded-lg text-sm uppercase tracking-tighter">
+            <div class="mt-8 inline-block bg-[#42A5E1] text-black font-black px-8 py-3 rounded-xl text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(66,165,225,0.4)]">
                 Evento Gratuito
             </div>
-
-            </div>
         </div>
-            
 
         <!-- Botões de Ação -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
             <!-- Instagram -->
-            <a href=" https://www.instagram.com/correlobo_oficial/" class="btn-glow flex items-center justify-center gap-3 bg-white/10 hover:bg-[#E1306C] transition-all duration-300 py-4 rounded-xl font-bold border border-white/20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            <a href="https://www.instagram.com/correlobo_oficial/" target="_blank" class="flex items-center justify-center gap-3 bg-white/5 hover:bg-[#E1306C] transition-all duration-300 py-4 rounded-2xl font-bold border border-white/10 hover:border-[#E1306C] hover:-translate-y-1">
+                <i class="fa-brands fa-instagram text-xl"></i>
                 Instagram
             </a>
-
             <!-- WhatsApp -->
-            <a href="https://chat.whatsapp.com/LS6bBGXYQrj0skG3wbOAm8" class="btn-glow flex items-center justify-center gap-3 bg-white/10 hover:bg-[#25D366] transition-all duration-300 py-4 rounded-xl font-bold border border-white/20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            <a href="https://chat.whatsapp.com/LS6bBGXYQrj0skG3wbOAm8" target="_blank" class="flex items-center justify-center gap-3 bg-white/5 hover:bg-[#25D366] transition-all duration-300 py-4 rounded-2xl font-bold border border-white/10 hover:border-[#25D366] hover:-translate-y-1">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
                 WhatsApp
             </a>
-
             <!-- Strava -->
-            <a href="https://strava.app.link/39kArVAWp0b" class="btn-glow flex items-center justify-center gap-3 bg-white/10 hover:bg-[#FC6100] transition-all duration-300 py-4 rounded-xl font-bold border border-white/20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <a href="https://strava.app.link/39kArVAWp0b" target="_blank" class="flex items-center justify-center gap-3 bg-white/5 hover:bg-[#FC6100] transition-all duration-300 py-4 rounded-2xl font-bold border border-white/10 hover:border-[#FC6100] hover:-translate-y-1">
+                <i class="fa-brands fa-strava text-xl"></i>
                 Strava
             </a>
         </div>
-
-        
     </main>
 
-    <section class="relative md:min-h-screen flex items-center py-10 px-4 sm:px-6 lg:px-8">
-        <!-- Detalhe decorativo de fundo -->
-        <div class="absolute top-0 right-0 -z-10 w-64 h-64 bg-[#1E40AF] opacity-10 blur-[100px]"></div>
-        
-        <div class="max-w-7xl mx-auto w-full">
-            
-            <h2 class=" text-center text-5xl md:text-7xl font-black text-italic-speed mb-2 italic">
-                PERCURSO
-            </h2>
-                <div class="lg:col-span-7 ">
-                    <div class="relative rounded-3xl lg:rounded-[40px] overflow-hidden border-2 border-white/5 shadow-2xl">
-                        
-                        <!-- Header do Card (Mobile Friendly) -->
-                        <div class="absolute top-0 left-0 right-0 z-10 p-4 lg:p-6 flex justify-between items-start pointer-events-none">
-                            <div class="glass-panel px-4 py-2 rounded-full border border-white/10 pointer-events-auto">
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-location-dot text-[#42A5E1]"></i>
-                                    <span class="text-xs font-bold uppercase tracking-wider">Sarzedo, MG</span>
-                                </div>
-                            </div>
-                        </div>
+    <!-- ============================= SEÇÃO QUEM SOMOS ============================= -->
+    <section class="relative z-10 w-full max-w-4xl mx-auto py-20 px-4 sm:px-6">
+        <!-- Glow effect background -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#1E40AF] opacity-10 blur-[150px] -z-10 pointer-events-none"></div>
 
-                        <!-- A Imagem do Percurso -->
-                        
-                        <img src="images/mapa_do_percurso.png" 
-                             alt="Mapa do percurso de corrida" 
-                             class="map-image w-full object-cover lg:h-[600px] transition-transform duration-700 hover:scale-105">
-                            <!-- Botão de Ação (Ajustado para polegar no celular) -->
-                            <div class="pt-2">
-                                    <!-- Link do percurso google maps -->
-                                <a href="https://maps.app.goo.gl/58Ufmnc7KXRcGJH26?g_st=ic" class="btn-glow flex items-center justify-center gap-3 bg-white/10 hover:bg-[#42A5E1] transition-all duration-300 py-4 rounded-xl font-bold border border-white/20">
-                                    ABRIR ROTA COMPLETA
-                                </a>
-                            </div>
-                            
+        <!-- Header da Seção -->
+        <div class="text-center mb-12">
+            <a href="https://www.instagram.com/correlobo_oficial/" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full glass-card border border-white/10 text-sm font-bold mb-8 text-white/80 hover:text-white hover:bg-white/10 hover:scale-105 transition-all duration-300">
+                <i class="fa-brands fa-instagram text-[#E1306C]"></i>
+                correlobo_oficial 🐺
+            </a>
+            <h2 class="text-5xl md:text-7xl font-black text-italic-speed">
+                QUEM <span class="text-[#42A5E1]">SOMOS</span>
+            </h2>
+        </div>
+
+        <!-- Container de Conteúdo -->
+        <div class="glass-card rounded-[2rem] p-8 md:p-14 w-full relative overflow-hidden shadow-2xl">
+            <!-- Detalhe de luz interno -->
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-[#42A5E1] opacity-10 blur-[60px] rounded-full pointer-events-none"></div>
+
+            <div class="space-y-8 text-lg md:text-xl text-white/80 font-medium leading-relaxed relative z-10">
+                
+                <p>O Corre Lobo nasceu com um propósito simples: <span class="text-white">reunir pessoas para correr.</span></p>
+                <p>O que começou como um treino evoluiu para algo muito maior.</p>
+                
+                <!-- Destaque / Blockquote -->
+                <div class="py-6 my-10 relative">
+                    <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#7DD3FC] via-[#42A5E1] to-[#1E40AF] rounded-full"></div>
+                    <p class="text-2xl md:text-3xl font-bold text-white pl-8 leading-snug">
+                        Hoje, somos uma <span class="text-[#42A5E1]">matilha em movimento</span> — uma comunidade que acredita no poder da corrida para transformar vidas, conectar histórias e fortalecer pessoas.
+                    </p>
+                </div>
+
+                <p>Aqui, não importa o seu ritmo.</p>
+                <p>Seja 3 km ou uma maratona, o importante é <span class="text-white font-bold border-b-2 border-[#42A5E1] pb-1">dar o primeiro passo.</span></p>
+
+                <!-- Grid de Características -->
+                <div class="py-10 my-10 border-y border-white/10">
+                    <p class="mb-6 text-[#7DD3FC] font-bold uppercase tracking-[0.2em] text-sm">Somos movidos por:</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-[#42A5E1]/20 hover:border-[#42A5E1]/50 transition-all duration-300 transform hover:-translate-y-1">
+                            <span class="text-3xl drop-shadow-md">🏃</span>
+                            <span class="font-bold tracking-wider uppercase text-white">Movimento</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-[#42A5E1]/20 hover:border-[#42A5E1]/50 transition-all duration-300 transform hover:-translate-y-1">
+                            <span class="text-3xl drop-shadow-md">🤝</span>
+                            <span class="font-bold tracking-wider uppercase text-white">Comunidade</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-[#42A5E1]/20 hover:border-[#42A5E1]/50 transition-all duration-300 transform hover:-translate-y-1">
+                            <span class="text-3xl drop-shadow-md">🔥</span>
+                            <span class="font-bold tracking-wider uppercase text-white">Superação</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-[#42A5E1]/10 border border-[#42A5E1]/40 rounded-2xl p-5 hover:bg-[#42A5E1]/30 transition-all duration-300 transform hover:-translate-y-1 shadow-[0_0_20px_rgba(66,165,225,0.15)] group">
+                            <span class="text-3xl drop-shadow-md group-hover:scale-110 transition-transform">🐺</span>
+                            <span class="font-black tracking-wider text-[#7DD3FC] uppercase">Espírito de matilha</span>
+                        </div>
                     </div>
-                    
+                </div>
+
+                <p class="text-center text-white/90">Cada treino, cada evento e cada chegada têm um propósito: inspirar você a ir mais longe.</p>
+
+                <!-- Gran Finale -->
+                <div class="pt-8 text-center">
+                    <p class="text-white/40 text-sm uppercase tracking-[0.3em] mb-4">Porque, no fim, somos mais do que corrida.</p>
+                    <p class="text-4xl md:text-6xl font-black italic text-italic-speed text-gradient drop-shadow-lg leading-tight">
+                        SOMOS UMA MATILHA.
+                    </p>
                 </div>
 
             </div>
-            
         </div>
-       
     </section>
-     <div class="pt-1 md:pt-0.5 z-10">
-            <!-- Link do percurso google maps -->
-            <a href="https://wa.me/55031975536657" class="btn-glow flex items-center justify-center bg-white/20 hover:bg-[#42A5E1] transition-all duration-300 py-10 w-64 font-bold border border-white/20 rounded-2xl">
-                Seja um Apoiador corre lobo
-            </a>
-     </div>
 
-    <footer class="mt-12 text-xs opacity-50 uppercase tracking-[0.2em]">
-            <p>Desenvolvido por Victor Jorge</p>
-            <a class="hover:underline" href="https://wa.me/55031996916662">Clique aqui se deseja um site como esse para sua marca!</a>
-        </footer>
+    <!-- Seção do Percurso -->
+    <section class="relative w-full max-w-5xl mx-auto py-16 px-4 sm:px-6">
+        <h2 class="text-center text-5xl md:text-7xl font-black text-italic-speed mb-8">
+            PERCURSO
+        </h2>
+        
+        <div class="glass-card rounded-[2rem] p-4 md:p-6 shadow-2xl relative group overflow-hidden">
+            <!-- Header Flutuante do Mapa -->
+            <div class="absolute top-8 left-8 z-20">
+                <div class="bg-black/60 backdrop-blur-md px-5 py-2 rounded-full border border-white/20 flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-[#42A5E1]"></i>
+                    <span class="text-sm font-bold uppercase tracking-wider text-white">Sarzedo, MG</span>
+                </div>
+            </div>
+
+            <!-- Imagem do Mapa -->
+            <div class="rounded-3xl overflow-hidden relative">
+                <img src="images/mapa_do_percurso.png" 
+                     alt="Mapa do percurso de corrida" 
+                     class="w-full object-cover md:h-[500px] transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            </div>
+
+            <!-- Botão de Ação -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 w-11/12 md:w-auto">
+                <a href="https://maps.app.goo.gl/58Ufmnc7KXRcGJH26?g_st=ic" target="_blank" class="flex items-center justify-center gap-3 bg-[#42A5E1] text-black hover:bg-white hover:scale-105 transition-all duration-300 py-4 px-8 rounded-2xl font-black uppercase tracking-wider shadow-[0_10px_30px_rgba(66,165,225,0.4)]">
+                    <i class="fa-solid fa-map"></i> Abrir Rota Completa
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Final -->
+    <div class="py-12 z-10">
+        <a href="https://wa.me/55031975536657" target="_blank" class="flex items-center justify-center gap-2 bg-white/10 hover:bg-[#42A5E1] hover:text-black transition-all duration-300 py-4 px-10 font-bold border border-white/20 hover:border-transparent rounded-full shadow-lg">
+            <i class="fa-solid fa-handshake"></i> Seja um Apoiador Corre Lobo
+        </a>
+    </div>
+
+    
+    <!-- ============================= SEÇÃO PATROCINADORES (LISTA VERTICAL) ============================= -->
+    <section class="relative w-full max-w-4xl mx-auto py-16 px-4 sm:px-6 z-10">
+        <div class="text-center mb-10">
+            <p class="text-[#7DD3FC] font-bold uppercase tracking-[0.2em] text-xs mb-3">Parcerias de Sucesso</p>
+            <h2 class="text-4xl md:text-6xl font-black text-italic-speed">NOSSOS <span class="text-[#42A5E1]">PARCEIROS</span></h2>
+        </div>
+
+        <!-- Lista Vertical de Patrocinadores -->
+        <div class="flex flex-col gap-3">
+            
+            <!-- Item de Patrocinador (Reutilizável) -->
+            <!-- Patrocinador 1 -->
+            <div class="flex items-center justify-between glass-card p-3 md:p-4 rounded-[1.5rem] border border-white/5 hover:border-[#42A5E1]/40 hover:bg-white/5 transition-all duration-300 group shadow-md">
+                <div class="flex items-center gap-4 md:gap-6 flex-1">
+                    <!-- Imagem Quadrada -->
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-black/40 rounded-xl overflow-hidden flex-shrink-0 border border-white/10 p-1 group-hover:scale-105 transition-transform duration-300">
+                        <img src="images/carvalhos_suplementos.png" alt="Patrocinador 1" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <!-- Nome do Patrocinador -->
+                    <span class="text-lg md:text-xl font-bold tracking-tight text-white text-center block group-hover:text-[#42A5E1] transition-colors">
+                        carvalhos suplementos
+                        </span>
+                </div>
+                <!-- Botão Instagram -->
+                <a href="https://www.instagram.com/carvalhosuplementos1019?igsh=aWlkc3YzMmhoamtr" 
+
+                 aria-label="Instagram do Patrocinador" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/5 hover:bg-[#E1306C] hover:shadow-[0_0_15px_rgba(225,48,108,0.4)] transition-all duration-300 group/btn">
+                    <i class="fa-brands fa-instagram text-xl md:text-2xl group-hover/btn:scale-110 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Patrocinador 2 -->
+            <div class="flex items-center justify-between glass-card p-3 md:p-4 rounded-[1.5rem] border border-white/5 hover:border-[#42A5E1]/40 hover:bg-white/5 transition-all duration-300 group shadow-md">
+                <div class="flex items-center gap-4 md:gap-6 flex-1">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-black/40 rounded-xl overflow-hidden flex-shrink-0 border border-white/10 p-1 group-hover:scale-105 transition-transform duration-300">
+                        <img src="/images/cliffloja.jpg" alt="Patrocinador cliffloja" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <span class="text-lg md:text-xl font-bold tracking-tight text-white group-hover:text-[#42A5E1] transition-colors">cliff</span>
+                </div>
+                <a href="https://www.instagram.com/cliffloja?igsh=N21vY3hoc3ZqZ2kw" aria-label="Instagram do Patrocinador" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/5 hover:bg-[#E1306C] hover:shadow-[0_0_15px_rgba(225,48,108,0.4)] transition-all duration-300 group/btn">
+                    <i class="fa-brands fa-instagram text-xl md:text-2xl group-hover/btn:scale-110 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Patrocinador 3 -->
+            <div class="flex items-center justify-between glass-card p-3 md:p-4 rounded-[1.5rem] border border-white/5 hover:border-[#42A5E1]/40 hover:bg-white/5 transition-all duration-300 group shadow-md">
+                <div class="flex items-center gap-4 md:gap-6 flex-1">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-black/40 rounded-xl overflow-hidden flex-shrink-0 border border-white/10 p-1 group-hover:scale-105 transition-transform duration-300">
+                        <img src="/images/buffet arte mineira.jpg" alt="Patrocinador 3" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <span class="text-lg md:text-xl font-bold tracking-tight text-white group-hover:text-[#42A5E1] transition-colors">Buffet art mineira</span>
+                </div>
+                <a href="https://www.instagram.com/buffetartmineira_?igsh=MXN5MDB1MHZsOWNiMA==" aria-label="Instagram do Patrocinador" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/5 hover:bg-[#E1306C] hover:shadow-[0_0_15px_rgba(225,48,108,0.4)] transition-all duration-300 group/btn">
+                    <i class="fa-brands fa-instagram text-xl md:text-2xl group-hover/btn:scale-110 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Patrocinador 4 -->
+            <div class="flex items-center justify-between glass-card p-3 md:p-4 rounded-[1.5rem] border border-white/5 hover:border-[#42A5E1]/40 hover:bg-white/5 transition-all duration-300 group shadow-md">
+                <div class="flex items-center gap-4 md:gap-6 flex-1">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-black/40 rounded-xl overflow-hidden flex-shrink-0 border border-white/10 p-1 group-hover:scale-105 transition-transform duration-300">
+                        <img src="/images/Floricultura Central.jpg" alt="Patrocinador 4" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <span class="text-lg md:text-xl font-bold tracking-tight text-white group-hover:text-[#42A5E1] transition-colors">Floricultura central</span>
+                </div>
+                <a href="https://www.instagram.com/floricultura.central?igsh=azhqNmN4cWp5Zngw" aria-label="Instagram do Patrocinador" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/5 hover:bg-[#E1306C] hover:shadow-[0_0_15px_rgba(225,48,108,0.4)] transition-all duration-300 group/btn">
+                    <i class="fa-brands fa-instagram text-xl md:text-2xl group-hover/btn:scale-110 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Patrocinador 5 -->
+            <div class="flex items-center justify-between glass-card p-3 md:p-4 rounded-[1.5rem] border border-white/5 hover:border-[#42A5E1]/40 hover:bg-white/5 transition-all duration-300 group shadow-md">
+                <div class="flex items-center gap-4 md:gap-6 flex-1">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-black/40 rounded-xl overflow-hidden flex-shrink-0 border border-white/10 p-1 group-hover:scale-105 transition-transform duration-300">
+                        <img src="/images/Paulina.jpg" alt="Patrocinador 5" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <span class="text-lg md:text-xl font-bold tracking-tight text-white group-hover:text-[#42A5E1] transition-colors">Paulina Presonal Trainer</span>
+                </div>
+                <a href="https://www.instagram.com/paulina_martins_drew_" aria-label="Instagram do Patrocinador" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/5 hover:bg-[#E1306C] hover:shadow-[0_0_15px_rgba(225,48,108,0.4)] transition-all duration-300 group/btn">
+                    <i class="fa-brands fa-instagram text-xl md:text-2xl group-hover/btn:scale-110 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Patrocinador 6 -->
+            <div class="flex items-center justify-between glass-card p-3 md:p-4 rounded-[1.5rem] border border-white/5 hover:border-[#42A5E1]/40 hover:bg-white/5 transition-all duration-300 group shadow-md">
+                <div class="flex items-center gap-4 md:gap-6 flex-1">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-black/40 rounded-xl overflow-hidden flex-shrink-0 border border-white/10 p-1 group-hover:scale-105 transition-transform duration-300">
+                        <img src="/images/Nanda Personal Trainer.jpg" alt="Patrocinador 6" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <span class="text-lg md:text-xl font-bold tracking-tight text-white group-hover:text-[#42A5E1] transition-colors">Nanda Personal Trainer</span>
+                </div>
+                <a href="https://www.instagram.com/nanda.personal_trainer?igsh=MWxuNHVieHlia2lsaQ%3D%3D" aria-label="Instagram do Patrocinador" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/5 hover:bg-[#E1306C] hover:shadow-[0_0_15px_rgba(225,48,108,0.4)] transition-all duration-300 group/btn">
+                    <i class="fa-brands fa-instagram text-xl md:text-2xl group-hover/btn:scale-110 transition-transform"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-8 mb-8 text-center text-xs text-white/40 uppercase tracking-[0.15em] space-y-3 z-10">
+        <p>Desenvolvido por Victor Jorge</p>
+        <p>
+            <a class="hover:text-[#42A5E1] transition-colors" href="https://wa.me/55031996916662" target="_blank">
+                Clique aqui se deseja um site como esse para sua marca!
+            </a>
+        </p>
+    </footer>
+
 </body>
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
 </html>
