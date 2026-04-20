@@ -73,19 +73,201 @@
         </svg>
     </div>
 
-    <!-- Seção Principal (Hero) -->
-    <main class="relative z-10 flex flex-col items-center max-w-3xl w-full text-center px-4 pt-12 pb-8">
-        
-        <div class="mb-6 transform hover:scale-105 transition duration-500">
+    <header class="flex items-center  gap-6 pt-6">
+       <div class="top-4 hover:scale-105 transition duration-500">
             <img src="images/Logo_Lobo.png" 
                  alt="Logo Corre Lobo" 
                  class="w-56 h-56 md:w-72 md:h-72 object-contain drop-shadow-[0_0_40px_rgba(66,165,225,0.4)]"
                  style="mix-blend-mode: screen;"> <!-- Alterado para screen para fundos escuros -->
-        </div>
+        </div> 
 
         <h1 class="text-6xl md:text-8xl font-black text-italic-speed mb-4">
             CORRE <span class="text-[#42A5E1]">LOBO</span>
         </h1>
+
+    </header>
+        
+    
+    <!-- ============================= SEÇÃO DESCRIÇÃO DO EVENTO ============================= -->
+    <main class="relative z-10 w-full max-w-5xl mx-auto py-16 px-4 sm:px-6">
+        <!-- Título da Seção -->
+        <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-6xl font-extrabold italic uppercase tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                Dia do Trabalhador
+            </h2>
+            <h2 class="text-4xl md:text-9xl font-black italic uppercase tracking-wider text-white 
+           drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)] 
+           bg-gradient-to-r from-white via-blue-200 to-blue-400 
+           bg-clip-text text-transparent">
+            CORRE LOBO
+            </h2>
+
+            <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto font-medium leading-relaxed">
+                Prepare-se para viver uma experiência diferente de corrida. Um evento pensado para quem busca energia, conexão e evolução coletiva.
+            </p>
+            <div class="mt-4 inline-block border border-[#42A5E1]/50 bg-[#42A5E1]/10 px-6 py-2 rounded-full">
+                <span class="text-[#7DD3FC] font-bold uppercase tracking-wider text-sm">Aqui o foco não é só performance — é viver o percurso, fortalecer a mente e correr junto com a matilha.</span>
+            </div>
+        </div>
+
+        <!-- Grid de Informações -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Card Programação -->
+            <div class="glass-card p-6 md:p-8 rounded-[2rem] hover:-translate-y-1 transition-transform duration-300 shadow-lg">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
+                    <i class="fa-solid fa-clock text-[#42A5E1]"></i> Programação
+                </h3>
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-center justify-between bg-white/5 p-4 rounded-xl border border-white/5">
+                        <span class="text-white/90">Abertura do parque</span>
+                        <span class="font-black text-[#7DD3FC] text-xl">06:00</span>
+                    </li>
+                    <li class="flex items-center justify-between bg-white/5 p-4 rounded-xl border border-white/5">
+                        <span class="text-white/90">Alongamento coletivo</span>
+                        <span class="font-black text-[#7DD3FC] text-xl">06:50</span>
+                    </li>
+                    <li class="flex items-center justify-between bg-[#42A5E1]/20 border border-[#42A5E1]/40 p-4 rounded-xl shadow-[0_0_15px_rgba(66,165,225,0.15)]">
+                        <span class="font-bold text-white uppercase tracking-wider">Largada</span>
+                        <span class="font-black text-[#42A5E1] text-2xl">07:00</span>
+                    </li>
+                </ul>
+            </div>
+
+         <!-- Card Estrutura -->
+            <div class="glass-card p-6 md:p-8 rounded-[2rem] hover:-translate-y-1 transition-transform duration-300 shadow-lg">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 border-b border-white/10 pb-4">
+                    <i class="fa-solid fa-map-location-dot text-[#42A5E1]"></i> Estrutura
+                </h3>
+                <div class="mb-6 bg-black/40 p-4 rounded-xl border border-white/10">
+                    <p class="font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-[#E1306C]"></i> PARQUE CACHOEIRA DE SARZEDO
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                    <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5 text-white/80 text-sm md:text-base">
+                        <i class="fa-solid fa-restroom text-[#42A5E1] text-lg"></i> Banheiros
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5 text-white/80 text-sm md:text-base">
+                        <i class="fa-solid fa-car text-[#42A5E1] text-lg"></i> Estacionamento
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5 text-white/80 text-sm md:text-base">
+                        <i class="fa-solid fa-droplet text-[#42A5E1] text-lg"></i> Água
+                    </div>
+                    <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5 text-white/80 text-sm md:text-base">
+                        <i class="fa-solid fa-child text-[#42A5E1] text-lg"></i> Espaço Kids
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3 p-4 border-l-4 border-[#FC6100] bg-[#FC6100]/10 rounded-r-xl">
+                    <i class="fa-solid fa-circle-exclamation text-[#FC6100] mt-1"></i>
+                    <p class="text-sm text-white/90"><strong>Importante:</strong> Leve sua própria hidratação para garantir sua performance durante o percurso.</p>
+                </div>
+            </div>
+        
+            <!-- Card Percurso & Competição (Ocupa as duas colunas em telas maiores) -->
+            <div class="glass-card p-6 md:p-8 rounded-[2rem] md:col-span-2 flex flex-col md:flex-row gap-8 items-center border border-white/10 shadow-lg relative overflow-hidden">
+                <!-- Fundo de design -->
+                <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none text-[15rem]">
+                    <i class="fa-solid fa-person-running"></i>
+                </div>
+                
+                <!-- Percurso -->
+                <div class="w-full md:w-1/2 relative z-10">
+                    <h3 class="text-2xl font-bold mb-3 flex items-center gap-3">
+                        <i class="fa-solid fa-route text-[#42A5E1]"></i> Percurso de 5km
+                    </h3>
+                    <p class="text-white/80 text-lg">Ideal tanto para quem está começando quanto para quem quer manter o ritmo forte. Todo mundo é bem-vindo!</p>
+                </div>
+
+                <!-- Divisor -->
+                <div class="hidden md:block w-px h-24 bg-white/20"></div>
+                <div class="block md:hidden w-full h-px bg-white/20 my-2"></div>
+
+                <!-- Competição -->
+                <div class="w-full md:w-1/2 relative z-10">
+                    <h3 class="text-2xl font-bold mb-3 flex items-center gap-3 text-white">
+                        <i class="fa-solid fa-trophy text-yellow-500"></i> Por Competição
+                    </h3>
+                    <p class="text-white/80 text-lg mb-3">
+                        Haverá <span class="font-bold text-yellow-500">troféu</span> apenas para esta modalidade:
+                    </p>
+                    
+                    <div class="inline-flex items-center gap-4 bg-white/10 px-4 py-2 rounded-lg border border-white/10">
+                        <span class="font-bold">1º ao 3º colocado</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+                        <span class="text-sm text-white/80 uppercase">Feminino e Masculino</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center md:col-span-2">
+                <a href="https://www.sympla.com.br/evento/dia-do-trabalhador-corre-lobo/3392323?share_id=copiarlink&share_id=copiarlink" target="_blank" class="inline-flex items-center justify-center gap-3 bg-[#42A5E1] text-black hover:bg-white hover:scale-105 transition-all duration-300 font-black px-8 md:px-12 py-4 rounded-xl text-sm md:text-base uppercase tracking-widest shadow-[0_0_30px_rgba(66,165,225,0.5)] w-full sm:w-auto">
+                    <i class="fa-solid fa-ticket-simple text-xl"></i>
+                    Garantir Ingresso Gratuito e o para Competição
+                </a>
+            </div>
+
+            
+            <!-- Card Sorteio Especial CliffLoja -->
+            <div class="glass-card p-6 md:p-10 rounded-[2rem] md:col-span-2 border border-[#E1306C]/40 bg-gradient-to-br from-[#E1306C]/10 to-transparent relative overflow-hidden group shadow-[0_10px_30px_rgba(225,48,108,0.1)]">
+                <div class="absolute -right-10 -top-10 text-[12rem] opacity-[0.03] group-hover:scale-110 transition-transform duration-700 pointer-events-none">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center justify-between">
+                    <div class="flex-1">
+                        <div class="inline-block bg-[#E1306C] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">Sorteio Exclusivo</div>
+                        <h3 class="text-4xl md:text-5xl font-black text-italic-speed mb-3 text-white">
+                            SORTEIO <span class="text-[#E1306C]">ESPECIAL</span>
+                        </h3>
+                        <p class="text-lg text-white/90 mb-6">Ao final do evento, sortearemos para os participantes:</p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 mb-6 md:mb-0">
+                            <div class="bg-black/30 border border-white/10 rounded-xl p-4 flex items-center gap-4 flex-1">
+                                <i class="fa-solid fa-shoe-prints text-2xl text-[#E1306C]"></i>
+                                <div>
+                                    <span class="block text-xs text-white/60 uppercase tracking-wider">1 Tênis</span>
+                                    <strong class="text-lg text-white">RUN FLY Feminino</strong>
+                                </div>
+                            </div>
+                            <div class="bg-black/30 border border-white/10 rounded-xl p-4 flex items-center gap-4 flex-1">
+                                <i class="fa-solid fa-shoe-prints text-2xl text-[#42A5E1]"></i>
+                                <div>
+                                    <span class="block text-xs text-white/60 uppercase tracking-wider">1 Tênis</span>
+                                    <strong class="text-lg text-white">RUN FLY Masculino</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Regras do Sorteio -->
+                    <div class="bg-black/50 p-6 rounded-2xl border border-white/10 w-full md:w-80 backdrop-blur-md">
+                        <p class="font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-[#7DD3FC]"></i> Para participar:
+                        </p>
+                        <ul class="text-sm text-white/80 space-y-3 mb-6">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i> 
+                                <span>Estar presencialmente com o número da corrida</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-400 mt-1"></i> 
+                                <span>Curtir e comentar o post oficial</span>
+                            </li>
+                        </ul>
+                        <a href="https://www.instagram.com/cliffloja" target="_blank" class="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F56040] py-3 px-6 rounded-xl font-bold text-white hover:scale-105 transition-transform duration-300 shadow-lg">
+                            <i class="fa-brands fa-instagram text-xl"></i> Seguir @CLIFFLOJA
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <!-- Seção Principal (Hero) -->
+    <section class="relative z-10 flex flex-col items-center max-w-3xl w-full text-center px-4 pt-12 pb-8">
         
         <!-- Card de Informações -->
         <div class="glass-card rounded-3xl p-8 w-full mb-10 transform transition-all hover:scale-[1.02]">
@@ -122,7 +304,7 @@
                 Strava
             </a>
         </div>
-    </main>
+    </section>
 
     <!-- Seção do Percurso -->
     <section class="relative w-full max-w-5xl mx-auto py-16 px-4 sm:px-6">
